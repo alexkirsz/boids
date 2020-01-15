@@ -1,0 +1,26 @@
+[package]
+name = "boids"
+version = "0.1.0"
+authors = ["Alexandre Kirszenberg <alexandre.kirszenberg@epita.fr>"]
+edition = "2018"
+
+[profile.release]
+lto = true
+
+[[bin]]
+name = "boid"
+path = "src/bin.rs"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "src/lib.rs"
+
+[dependencies]
+kiss3d = { git = "https://github.com/alexkirsz/kiss3d.git", rev = "9edf1818", features = [
+  "conrod"
+] }
+nalgebra = "0.19.0"
+rstar = "0.7.0"
+static_assertions = "1.1.0"
+stdweb = "0.4"
+rand = { version = "0.6", features = ["stdweb"] }
